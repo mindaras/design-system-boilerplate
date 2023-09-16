@@ -1,0 +1,51 @@
+@import "@styles";
+
+.container {
+  @include reset;
+
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:not(:last-of-type) {
+    color: rgb(94, 0, 146);
+    margin-right: 6px;
+
+    &::before {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      height: 1px;
+      width: calc(100% - 10px);
+      background-color: rgb(94, 0, 146);
+      content: " ";
+    }
+
+    &::after {
+      width: 4px;
+      margin-left: 6px;
+      content: "/";
+    }
+
+    &:hover {
+      &::before {
+        height: 2px;
+        background-color: rgb(94, 0, 146);
+      }
+    }
+  }
+
+  &:last-of-type {
+    color: rgb(41, 0, 62);
+    font-weight: 500;
+    pointer-events: none;
+    user-select: none;
+    cursor: default;
+  }
+}

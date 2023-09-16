@@ -1,0 +1,57 @@
+@import "@styles";
+
+.container {
+  @include reset;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  position: relative;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid #29003e;
+  }
+
+  &:checked {
+    background-color: rgb(41, 0, 62);
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: " ";
+      background-image: url("../../assets/icons/check-white.svg");
+      background-size: 16px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &:hover {
+      background-color: #5e0092;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.label {
+  margin-left: 12px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.additionalText {
+  margin-top: 4px;
+  color: rgba(0, 0, 0, 0.6);
+}

@@ -1,0 +1,90 @@
+@import "@styles";
+
+.container {
+  border-bottom: 1px solid rgb(220, 220, 225);
+  padding: 8px 24px;
+  margin-bottom: 14px;
+}
+
+.close {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+  margin-bottom: 16px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  svg {
+    fill: #29003e;
+  }
+
+  &:hover {
+    color: #7800b4;
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdowns {
+  display: flex;
+}
+
+.dropdown {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  border: 2px solid transparent;
+
+  &:focus {
+    border: 2px solid #0099ff;
+    border-radius: 4px;
+  }
+}
+
+.controls {
+  display: flex;
+}
+
+.control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #29003e;
+  background-color: rgb(240, 240, 240);
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #edc8ff;
+  }
+
+  &:not(:last-of-type) {
+    margin-right: 8px;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: #29003e;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+
+    &:hover {
+      background-color: rgb(240, 240, 240);
+    }
+  }
+}

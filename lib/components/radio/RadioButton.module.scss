@@ -1,0 +1,51 @@
+@import "@styles";
+
+.container {
+  @include reset;
+}
+
+.radioContainer {
+  display: flex;
+  align-items: center;
+}
+
+.radio {
+  position: relative;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid #29003e;
+  }
+
+  &:checked {
+    border: 1px solid #29003e;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #29003e;
+      border-radius: 50%;
+      width: calc(100% - 6px);
+      height: calc(100% - 6px);
+      content: " ";
+    }
+  }
+}
+
+.label {
+  margin-left: 12px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.additionalText {
+  margin-top: 4px;
+  color: rgba(0, 0, 0, 0.6);
+}

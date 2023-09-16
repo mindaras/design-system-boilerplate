@@ -1,0 +1,61 @@
+@import "@styles";
+
+.container {
+  @include reset;
+}
+
+.datepicker {
+  position: relative;
+}
+
+.day {
+  color: #29003e;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 3px;
+
+  &:hover {
+    border-radius: 50%;
+    background-color: #edc8ff;
+    color: #29003e;
+    font-weight: 700;
+  }
+
+  &__today {
+    border: 1px solid #29003e;
+  }
+
+  &__selected {
+    &,
+    &:hover {
+      border: none;
+      background-color: #29003e;
+      color: #fff;
+      font-weight: 400;
+    }
+  }
+}
+
+.calendarButton {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  svg {
+    fill: #29003e;
+  }
+}
+
+.additionalText {
+  margin-top: 4px;
+  color: rgba(0, 0, 0, 0.6);
+}

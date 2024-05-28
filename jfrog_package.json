@@ -1,5 +1,5 @@
 {
-  "name": "@scopeName/packageName",
+  "name": "design-system",
   "private": false,
   "version": "1.0.0",
   "type": "module",
@@ -18,7 +18,7 @@
     "**/*.css"
   ],
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://jfrog.{company}.io/artifactory/api/npm/{repository}/"
   },
   "scripts": {
     "start": "vite",

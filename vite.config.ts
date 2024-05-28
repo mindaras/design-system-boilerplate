@@ -35,19 +35,32 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ["react", "react/jsx-runtime", "react-dom"],
-      input: Object.fromEntries(
-        glob.sync("lib/**/*.{ts,tsx}").map((file) => [
-          // The name of the entry point
-          // lib/nested/foo.ts becomes nested/foo
-          path.relative(
-            "lib",
-            file.slice(0, file.length - path.extname(file).length)
-          ),
-          // The absolute path to the entry file
-          // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
-          fileURLToPath(new URL(file, import.meta.url)),
-        ])
-      ),
+      input: {
+        ...Object.fromEntries(
+          glob.sync("lib/**/*.{ts,tsx}").map((file) => [
+            // The name of the entry point
+            // lib/nested/foo.ts becomes nested/foo
+            path.relative(
+              "lib",
+              file.slice(0, file.length - path.extname(file).length)
+            ),
+            // The absolute path to the entry file
+            // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
+            fileURLToPath(new URL(file, import.meta.url)),
+          ])
+        ),
+        ...Object.fromEntries(
+          glob.sync("lib/tokens/**/*.css").map(file => {
+            return [
+              file,
+              path.resolve(
+                __dirname,
+                fileURLToPath(new URL(file, import.meta.url))
+              )
+            ]
+          })
+        )
+      }
       output: {
         assetFileNames: "assets/[name][extname]",
         entryFileNames: "[name].js",
